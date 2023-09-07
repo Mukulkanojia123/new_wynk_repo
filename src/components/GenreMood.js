@@ -3,17 +3,17 @@ import { useParams } from 'react-router-dom';
 import DisplaySong from './DisplaySong';
 import UserContext from './UserContext';
 
-let filterData = (userSearchText, genre) => {
-    if (!genre) {
-        return [];
-    }
+// let filterData = (userSearchText, genre) => {
+//     if (!genre) {
+//         return [];
+//     }
 
-    let searchtext = userSearchText.toLowerCase();
-    return genre.filter((song) => {
-        let newsong = song?.title.toLowerCase();
-        return newsong.includes(searchtext);
-    });
-};
+//     let searchtext = userSearchText.toLowerCase();
+//     return genre.filter((song) => {
+//         let newsong = song?.title.toLowerCase();
+//         return newsong.includes(searchtext);
+//     });
+// };
 
 export const GenreMood = () => {
     const { resId } = useParams();
@@ -36,16 +36,16 @@ export const GenreMood = () => {
     };
 
     // filter search item
-    useEffect(() => {
-        if (genre) {
-            let data = filterData(userSearchText, genre);
-            setFilterMusic(data);
-        }
-    }, [userSearchText, genre]);
+    // useEffect(() => {
+    //     if (genre) {
+    //         let data = filterData(userSearchText, genre);
+    //         setFilterMusic(data);
+    //     }
+    // }, [userSearchText, genre]);
 
     useEffect(() => {
         fetchgenre();
-    }, []);
+    }, [resId]);
 
     return (
         <div className="flex flex-wrap justify-evenly">

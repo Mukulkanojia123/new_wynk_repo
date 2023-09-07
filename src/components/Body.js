@@ -35,7 +35,7 @@ const Body = () => {
 
 
     const getListOfMusic = async () => {
-        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/song?page=${currPage}&limit=20`, {
+        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/song?page=${currPage}&limit=12`, {
             headers: {
                 'projectId': 'd5qpkle1fta5'
             }

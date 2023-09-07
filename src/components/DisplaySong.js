@@ -19,7 +19,7 @@ const DisplaySong = ({ song }) => {
     };
     //   console.log(song)
     return (
-        <div className="m-4 p-4 w-[350px] rounded-lg bg-gray-100 hover:bg-gray-200" >
+        <div className="m-4 p-4 w-[300px] rounded-lg bg-gray-100 hover:bg-gray-200" >
             <img className="rounded-lg" src={song.thumbnail} alt={song.title} />
             <h2 className="font-bold py-4 text-lg" >{song.title}</h2>
             {/* <h2> Artist :-{song.artist[0].name}</h2> */}

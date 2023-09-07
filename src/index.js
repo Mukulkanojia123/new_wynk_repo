@@ -9,6 +9,7 @@ import AlbumPage from './components/AlbumPage';
 import ArtistDetails from './components/ArtistDetails';
 import ManageSubscription from './Manage/ManageSubscription';
 import { GenreMood } from './components/GenreMood';
+import SearchPage from './components/searchPage';
 
 
 
@@ -37,6 +38,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/genre/:resId",
                 element : <GenreMood/>
+            },
+            {
+                path: "/search/song",
+                element : <SearchPage/>
             }
         ]
     }

@@ -48,11 +48,11 @@ const Header = () => {
                                 <FontAwesomeIcon className="h-5 w-5 text-gray-400" icon={faSearch} />
                             </div>
                         </div>
-                            <button className='text-white mx-2' onClick={handleChange} >search</button>
+                        <Link to={ "/search/song"}> <button className='text-white mx-2 mt-2' onClick={handleChange} >search</button></Link>
                     </li>
-                    <li className='   text-white'><Link to={"/managesubscription/"}>Manage Subscription</Link></li>
-                    <li className='  text-white' onClick={Logoutfun}>  {user} : Logout</li>
-                   <li className='  text-white'><Link to={"/"}>Home</Link></li>
+                    <li className='   text-white mt-2'><Link to={"/managesubscription/"}>Manage Subscription</Link></li>
+                    <li className='  text-white mt-2' onClick={Logoutfun}>  {user} : Logout</li>
+                   <li className='  text-white mt-2'><Link to={"/"}>Home</Link></li>
                 </ul>
             </div>
             </div>
