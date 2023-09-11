@@ -10,6 +10,7 @@ import ArtistDetails from './components/ArtistDetails';
 import ManageSubscription from './Manage/ManageSubscription';
 import { GenreMood } from './components/GenreMood';
 import SearchPage from './components/searchPage';
+import AddFavourites from './components/AddFavourites';
 
 
 
@@ -42,6 +43,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/search/song",
                 element : <SearchPage/>
+            },
+            {
+                path: "/favourite/",
+                element : <AddFavourites/>
             }
         ]
     }

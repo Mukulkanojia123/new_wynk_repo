@@ -12,8 +12,12 @@ function App() {
   const [searchItem , setSearchItem] = useState('');
   const[authrise , setAuthrise] = useState(false);
   const [userName , setUserName] = useState("");
+  const [fav , setFav] = useState([]);
   return (
-    <UserContext.Provider value={{ userSearchText : searchItem ,isLogin: authrise,user : userName,setAuthrise, setSearchItem,setUserName}}>
+    <UserContext.Provider value={{ userSearchText : searchItem ,
+    isLogin: authrise,user : userName, favList:fav,setFav,
+    setAuthrise, setSearchItem,setUserName
+    }}>
     
       {
         !authrise ? (

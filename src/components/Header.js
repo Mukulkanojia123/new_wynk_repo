@@ -1,6 +1,6 @@
 import React , {useContext, useState}from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSearch , faHouse} from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import UserContext from './UserContext';
 import { GenreButton } from './GenreButton';
@@ -50,9 +50,10 @@ const Header = () => {
                         </div>
                         <Link to={ "/search/song"}> <button className='text-white mx-2 mt-2' onClick={handleChange} >search</button></Link>
                     </li>
+                    <li className='   text-white mt-2'><Link to={"/favourite/"}>Fav</Link></li>
                     <li className='   text-white mt-2'><Link to={"/managesubscription/"}>Manage Subscription</Link></li>
                     <li className='  text-white mt-2' onClick={Logoutfun}>  {user} : Logout</li>
-                   <li className='  text-white mt-2'><Link to={"/"}>Home</Link></li>
+                   <li className='  text-white mt-2'><Link to={"/"}><FontAwesomeIcon className = "text-gray-400"icon={faHouse} /></Link></li>
                 </ul>
             </div>
             </div>

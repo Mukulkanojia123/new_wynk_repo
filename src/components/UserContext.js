@@ -3,6 +3,7 @@ import { createContext } from "react";
 const UserContext = createContext({
     userSearchText : "",
     isLogin : false,
-    user : ""
+    user : "",
+    favList : []
 })
 export default UserContext;

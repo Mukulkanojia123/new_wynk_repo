@@ -28,7 +28,7 @@ import DisplaySong from './DisplaySong';
     <div  className='bg-gray-900 mt-0'>
          <div> <h1  className='text-orange-800  font-extrabold m-5 max-h-64 text-7xl'>{detail?.name}</h1></div>
            <div className='flex m-5'>
-            <img className='m-10 rounded-lg' src={detail?.image}/>
+            <img className='m-10 rounded-full' src={detail?.image}/>
             <div>
             <p className='m-10 text-5xl text-white'>{detail?.description}</p>
                 <p className='m-10 text-3xl text-white'>language :  
