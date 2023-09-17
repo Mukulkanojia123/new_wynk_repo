@@ -87,7 +87,7 @@ const Body = () => {
     }
 
     return (
-        <div className='bg-gray-900'>
+        <div className='bg-black'>
             {/* <GenreButton/> */}
             <div className='flex justify-evenly'>
                 <h1 className='text-5xl text-white'>SONGS</h1>
@@ -116,9 +116,9 @@ const Body = () => {
 
             </div>
             <div className='bg-black flex items-center justify-center'>
-                <button className='bg-blue-500 p-5' onClick={handlePreviouspage}><FontAwesomeIcon icon={faLeftLong} /></button>
+                <button className='bg-black shadow-xl border border-solid-white p-3' onClick={handlePreviouspage}><FontAwesomeIcon icon={faLeftLong} className='text-white' /></button>
                 <h1 className='p-5 font-bold text-base text-white'>{currPage}</h1>
-                <button className='bg-blue-500 p-5' onClick={handleNextpage}><FontAwesomeIcon icon={faRightLong} /></button>
+                <button className='bg-black shadow-lg border border-solid-white p-3' onClick={handleNextpage}><FontAwesomeIcon icon={faRightLong} className='text-white'/></button>
             </div>
 
         </div>

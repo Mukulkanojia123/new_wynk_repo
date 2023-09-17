@@ -30,7 +30,7 @@ import  ArtistDetails  from './ArtistDetails';
     // const artist = albumData?.artists
    
   return (
-    <div className='bg-gray-900' >
+    <div className='bg-black' >
        {/* <div className='flex flex-row-reverse text-blue-400 font-extrabold'>
       
       </div> */}

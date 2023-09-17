@@ -25,7 +25,7 @@ import DisplaySong from './DisplaySong';
         fetchartist();
     },[]);
   return (
-    <div  className='bg-gray-900 mt-0'>
+    <div  className='bg-black mt-0'>
          <div> <h1  className='text-orange-800  font-extrabold m-5 max-h-64 text-7xl'>{detail?.name}</h1></div>
            <div className='flex m-5'>
             <img className='m-10 rounded-full' src={detail?.image}/>

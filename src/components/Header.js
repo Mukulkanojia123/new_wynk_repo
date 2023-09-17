@@ -36,7 +36,7 @@ const Header = () => {
 
                 <div className='flex md:w-4/12  w-6/12' >
                     <img className='md:w-12 h-14 m-4' src='https://asset.brandfetch.io/idhXjxLF9g/idDdtM-Aux.png' />
-                    <p className='text-white my-8' >Wynk Music</p>
+                    <p className='text-white my-8 ' >Wynk Music</p>
                 </div>
 
                 <div className='  w-8/12'>
@@ -54,18 +54,18 @@ const Header = () => {
                                     <FontAwesomeIcon className="h-5 w-5 text-gray-400" icon={faSearch} />
                                 </div>
                             </div>
-                            <Link to={"/search/song"}> <button className='text-white mx-2 mt-2' onClick={handleChange} >search</button></Link>
+                            <Link to={"/search/song"}> <button className='text-white mx-2 mt-2 hover:text-red-600' onClick={handleChange} >search</button></Link>
                         </li>
-                        <li className='   text-white mt-2'><Link to={"/favourite/"}>Fav</Link></li>
-                        <li className='  text-white mt-2'><Link to={"/managesubscription/"}>Manage Subscription</Link></li>
-                        <li className='  text-white mt-2' onClick={Logoutfun}>  {user} : Logout</li>
-                        <li className=' text-white mt-2'><Link to={"/"}><FontAwesomeIcon className="text-gray-400" icon={faHouse} /></Link></li>
+                        <li className=' text-white mt-2 hover:text-red-600'><Link to={"/favourite/"}>Fav</Link></li>
+                        <li className=' text-white mt-2 hover:text-red-600'><Link to={"/managesubscription/"}>Manage Subscription</Link></li>
+                        <li className=' text-white mt-2 hover:text-red-600' onClick={Logoutfun}>  {user} : Logout</li>
+                        <li className=' text-white mt-2 '><Link to={"/"}><FontAwesomeIcon className="text-gray-400 hover:text-red-600" icon={faHouse} /></Link></li>
                     </ul>
 
 
                 </div>
                 <div className='block md:hidden mr-10'>
-                    <FontAwesomeIcon className="text-gray-400 font-extrabold mt-10" icon={faBars} onClick={handleHumbarger}/>
+                    <FontAwesomeIcon className="text-gray-400 font-extrabold mt-10 hover:text-red-600" icon={faBars} onClick={handleHumbarger}/>
                 </div>
             </div>
             <div>
@@ -79,4 +79,3 @@ const Header = () => {
 }
 
 export default Header;
-// border-gray-300

@@ -45,7 +45,7 @@ import Login from './Login';
     <Login />
   ) : (
     <div className="flex flex-col sm:flex-row">
-      <div className="w-full sm:w-1/2 bg-gray-900 flex flex-col justify-center items-center">
+      <div className="w-full sm:w-1/2 bg-black flex flex-col justify-center items-center">
         <img className="max-w-full h-[50%]" src={backgroundImageUrl} alt="Signup" />
         <p className="text-white mt-2 text-center font-bold text-3xl sm:text-5xl">
           Play The Music.
@@ -57,7 +57,7 @@ import Login from './Login';
       {/* Add the login form or content for the right half */}
 
       <div className="w-full sm:w-1/2 ">
-          <div className="flex flex-col justify-center items-center h-full bg-gray-900">
+          <div className="flex flex-col justify-center items-center h-full bg-black">
             <div className="mb-6 flex justify-center items-center">
               {/* <h1 className="pr-2 text-center sm:text-left text-white">
                go to login ?
