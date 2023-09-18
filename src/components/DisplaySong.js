@@ -41,20 +41,20 @@ const DisplaySong = ({ song }) => {
         setFav(temp);
         setStar(true);
         }
-            console.log(favList)
-            console.log(temp);
+            // console.log(favList)
+            // console.log(temp);
     }
     return (
-        <div className="m-4 p-4 w-[300px] rounded-lg bg-gray-100 hover:bg-gray-200" >
+        <div className="m-4 p-4 w-[300px] rounded-lg  hover:shadow-white" >
             <img className="rounded-lg" src={song.thumbnail} alt={song.title} />
             <div>
-                <h2 className="font-bold py-4 text-lg" >{song.title}</h2>
+                <h2 className="font-bold py-4 text-lg text-yellow-200" >{song.title}</h2>
                 <div>
                     {
                         star ?
-                        (<FontAwesomeIcon icon={faStar} className="font-semibold" onClick={handelFavourite} 
+                        (<FontAwesomeIcon icon={faStar} className="font-semibold text-yellow-200 cursor-pointer" onClick={handelFavourite} 
                         />) :( 
-                        <FontAwesomeIcon icon={faStar} className="font-semibold text-red-600" onClick={handelFavourite}
+                        <FontAwesomeIcon icon={faStar} className="font-semibold text-red-600 cursor-pointer" onClick={handelFavourite}
                          />)
                     }
                     
@@ -64,7 +64,7 @@ const DisplaySong = ({ song }) => {
             </div>
             <div className="flex justify-center items-center">
                 <button onClick={handlePlay} className="px-4 py-2">
-                    {songPlay ? <FontAwesomeIcon icon={faPause} className="font-semibold" /> : <FontAwesomeIcon icon={faPlay} className="font-semibold" />}
+                    {songPlay ? <FontAwesomeIcon icon={faPause} className="font-semibold text-yellow-200" /> : <FontAwesomeIcon icon={faPlay} className="font-semibold text-yellow-200" />}
                 </button>
             </div>
 

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 import UserContext from './UserContext';
-import { GenreButton } from './GenreButton';
+import Footer from './Footer';
 
 let filterData = (userSearchText, ListOfMusic) => {
     if (!ListOfMusic) {
@@ -35,7 +35,7 @@ const Body = () => {
 
 
     const getListOfMusic = async () => {
-        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/song?page=${currPage}&limit=12`, {
+        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/song?page=${currPage}&limit=8`, {
             headers: {
                 'projectId': 'd5qpkle1fta5'
             }
@@ -43,12 +43,12 @@ const Body = () => {
         const json = await data.json();
         // console.log(json.data);
         setListOfMusic(json.data);
-        setFilterMusic(json.data);
+        // setFilterMusic(json.data);
 
     }
 
     const getListOfAlbum = async () => {
-        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/album?page=${currPage}&limit=10`, {
+        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/album?page=${currPage}&limit=8`, {
             headers: {
                 'projectId': 'd5qpkle1fta5'
             }
@@ -94,10 +94,10 @@ const Body = () => {
             </div>
             <div className="flex flex-wrap justify-evenly">
                 {
-                    filterMusic.length === 0 ? (
+                    ListOfMusic.length === 0 ? (
                         <h1 className='text-white font-bold max-h-40'>NOT FOUND...........!!!!!</h1>
                     ) : (
-                        filterMusic && filterMusic.map((song) => (
+                        ListOfMusic && ListOfMusic.map((song) => (
                             <DisplaySong key={song._id} song={song} />
                         ))
                     )
@@ -116,11 +116,11 @@ const Body = () => {
 
             </div>
             <div className='bg-black flex items-center justify-center'>
-                <button className='bg-black shadow-xl border border-solid-white p-3' onClick={handlePreviouspage}><FontAwesomeIcon icon={faLeftLong} className='text-white' /></button>
+                <button className='bg-black shadow-xl rounded-lg border border-solid-white p-3 hover:bg-blue-600 transition' onClick={handlePreviouspage}><FontAwesomeIcon icon={faLeftLong} className='text-white' /></button>
                 <h1 className='p-5 font-bold text-base text-white'>{currPage}</h1>
-                <button className='bg-black shadow-lg border border-solid-white p-3' onClick={handleNextpage}><FontAwesomeIcon icon={faRightLong} className='text-white'/></button>
+                <button className='bg-black shadow-lg rounded-lg border border-solid-white p-3 hover:bg-blue-600 transition' onClick={handleNextpage}><FontAwesomeIcon icon={faRightLong} className='text-white'/></button>
             </div>
-
+            <Footer/>
         </div>
     )
 }

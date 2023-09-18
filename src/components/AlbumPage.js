@@ -34,12 +34,12 @@ import  ArtistDetails  from './ArtistDetails';
        {/* <div className='flex flex-row-reverse text-blue-400 font-extrabold'>
       
       </div> */}
-     <div> <h1  className='text-orange-800  font-extrabold m-5 max-h-64 text-7xl'>{albumData?.title}</h1></div>
-           <div className='flex m-5'>
+     <div> <h1  className='text-yellow-200  font-bold m-5 text-5xl max-h-64 md:text-7xl'>{albumData?.title}</h1></div>
+           <div className='md:flex md:m-5'>
             <img className='m-10 rounded-lg' src={albumData?.image}/>
             <div>
             <p className='m-10 text-5xl text-white'>{albumData?.description}</p>
-                <p className='m-10 text-3xl text-white'>Artish :  
+                <p className='m-10 text-3xl text-white'>Artist :  
                   {
                     albumData?.artists.map(artist => artist.name).join(', ')
                   }
@@ -53,7 +53,7 @@ import  ArtistDetails  from './ArtistDetails';
             ))
             }
           </div>
-          <div className="flex flex-wrap justify-evenly text-white">
+          <div className="flex flex-wrap justify-evenly text-yellow-200">
             {
                 albumData?.artists.map(artist =>(
                 <Link to={"/artistdetails/" + artist._id}  key={artist._id} > <ArtishsName artish={artist}/></Link> 

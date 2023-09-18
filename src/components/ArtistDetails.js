@@ -26,8 +26,8 @@ import DisplaySong from './DisplaySong';
     },[]);
   return (
     <div  className='bg-black mt-0'>
-         <div> <h1  className='text-orange-800  font-extrabold m-5 max-h-64 text-7xl'>{detail?.name}</h1></div>
-           <div className='flex m-5'>
+         <div> <h1  className='text-yellow-200  font-bold m-5 max-h-64 text-7xl'>{detail?.name}</h1></div>
+           <div className='md:flex md:m-5'>
             <img className='m-10 rounded-full' src={detail?.image}/>
             <div>
             <p className='m-10 text-5xl text-white'>{detail?.description}</p>

@@ -65,7 +65,7 @@ const Header = () => {
 
                 </div>
                 <div className='block md:hidden mr-10'>
-                    <FontAwesomeIcon className="text-gray-400 font-extrabold mt-10 hover:text-red-600" icon={faBars} onClick={handleHumbarger}/>
+                    <FontAwesomeIcon className="text-red-600 font-extrabold mt-10 " icon={faBars} onClick={handleHumbarger}/>
                 </div>
             </div>
             <div>

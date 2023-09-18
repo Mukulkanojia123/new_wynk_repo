@@ -59,16 +59,16 @@ const SearchPage = () => {
     console.log("useeffect");
   }, [capitalizedSearchText])
   return (
-    <div className='bg-gray-900 mt-0'>
+    <div className='bg-black mt-0'>
       {song ? (
         <>
           <div>
-            <h1 className='text-yellow-200 font-extrabold m-5 max-h-64 text-7xl'>Song Name :{song?.title}</h1>
+            <h1 className='text-yellow-200 font-bold m-5 max-h-64 text-4xl md:text-6xl'>Song Name :{song?.title}</h1>
             <h1 className='text-orange-800 font-bold m-5 max-h-64 text-7xl'>Artist : {song.artist[0].name}</h1>
           </div>
-          <div className='flex m-5'>
+          <div className='flex flex-col m-5 md:flex-row '>
             <img className='m-10 rounded-full' src={song.artist[0].image} alt={song.artist[0].name} />
-            <div>
+            <div className='mt-40'>
               <p className='m-10 text-5xl text-white'>{song.artist[0].description}</p>
               <p className='m-10 text-3xl text-white'>
                 Language:
