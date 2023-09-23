@@ -5,50 +5,53 @@ import DisplaySong from "./DisplaySong";
 import { Shimmer } from "./Shimmer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
+import ArtishsName from './ArtishsName';
 import { Link } from 'react-router-dom';
 import UserContext from './UserContext';
 import Footer from './Footer';
 
-let filterData = (userSearchText, ListOfMusic) => {
-    if (!ListOfMusic) {
-        return [];
-    }
+// let filterData = (userSearchText, ListOfMusic) => {
+//     if (!ListOfMusic) {
+//         return [];
+//     }
 
-    let searchtext = userSearchText.toLowerCase();
-    return ListOfMusic.filter((song) => {
-        let newsong = song?.title.toLowerCase();
+//     let searchtext = userSearchText.toLowerCase();
+//     return ListOfMusic.filter((song) => {
+//         let newsong = song?.title.toLowerCase();
 
-        return newsong.includes(searchtext);
-    });
-}
+//         return newsong.includes(searchtext);
+//     });
+// }
 
 
 const Body = () => {
 
     const [ListOfMusic, setListOfMusic] = useState(null);
-    const [filterMusic, setFilterMusic] = useState(null);
+    const [newRelease, setNewRelease] = useState(null);
+    const [toptrand, setTopTrand] = useState(null);
     const [ListOfAlbum, setListOfAlbum] = useState(null);
     const [currPage, setCurrPage] = useState(1);
 
-    const { userSearchText } = useContext(UserContext);
-    
+
+
 
 
     const getListOfMusic = async () => {
-        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/song?page=${currPage}&limit=8`, {
+        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/song?page=${currPage}&limit=15`, {
             headers: {
                 'projectId': 'd5qpkle1fta5'
             }
         })
         const json = await data.json();
         // console.log(json.data);
+
         setListOfMusic(json.data);
         // setFilterMusic(json.data);
 
     }
 
     const getListOfAlbum = async () => {
-        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/album?page=${currPage}&limit=8`, {
+        const data = await fetch(`https://academics.newtonschool.co/api/v1/music/album?page=${currPage}&limit=10`, {
             headers: {
                 'projectId': 'd5qpkle1fta5'
             }
@@ -58,17 +61,38 @@ const Body = () => {
         // console.log(json.data);
         setListOfAlbum(json.data);
     }
-    useEffect(() => {
-        let data = filterData(userSearchText, ListOfMusic);
-        setFilterMusic(data);
-    }, [userSearchText]);
+
+
+
+
 
     useEffect(() => {
         getListOfMusic();
         getListOfAlbum();
+        // getListOfArtist()
+
     }, [currPage])
 
+    useEffect(() => {
+        ListOfMusic && funfilter()
+    }, [ListOfMusic])
 
+
+    function funfilter() {
+        //  if(ListOfMusic){
+        let toptrend = ListOfMusic.filter((s) => (
+            s.mood === "excited"
+        ))
+        setNewRelease(toptrend)
+        //  console.log(toptrend)
+
+        let romanticSong = ListOfMusic.filter((s) => (
+            s.mood === "romantic"
+        ))
+        setTopTrand(romanticSong);
+        //  }
+
+    }
 
     const handleNextpage = () => {
         setCurrPage(currPage + 1);
@@ -89,23 +113,49 @@ const Body = () => {
     return (
         <div className='bg-black'>
             {/* <GenreButton/> */}
-            <div className='flex justify-evenly'>
-                <h1 className='text-5xl text-white'>SONGS</h1>
+            <div className='ml-10'>
+                <h1 className='md:text-5xl text-2xl text-white'>New Release</h1>
             </div>
+            {/**new Release */}
             <div className="flex flex-wrap justify-evenly">
                 {
-                    ListOfMusic.length === 0 ? (
-                        <h1 className='text-white font-bold max-h-40'>NOT FOUND...........!!!!!</h1>
-                    ) : (
-                        ListOfMusic && ListOfMusic.map((song) => (
-                            <DisplaySong key={song._id} song={song} />
-                        ))
-                    )
+
+                    newRelease && newRelease.map((song) => (
+                        <DisplaySong key={song._id} song={song} />
+                    ))
+
                 }
 
             </div>
-            <div className='flex justify-evenly'>
-                <h1 className='text-5xl text-white'>ALBUM</h1>
+            <div className='ml-10'>
+                <h1 className='md:text-5xl text-2xl text-white'>top trending</h1>
+            </div>
+            {/**top trend */}
+            <div className="flex flex-wrap justify-evenly">
+                {
+
+                    toptrand && toptrand.map((song) => (
+                        <DisplaySong key={song._id} song={song} />
+                    ))
+
+                }
+
+            </div>
+            <div className='ml-10'>
+                <h1 className='md:text-5xl text-2xl text-white'>Artists</h1>
+            </div>
+
+            <div className="flex flex-wrap justify-evenly text-white">
+                {
+                    ListOfMusic?.map(song => (
+                        <Link to={"/artistdetails/" + song.artist[0]._id} key={song._id} > <ArtishsName artish={song.artist[0]} /></Link>
+                    ))
+
+                }
+            </div>
+
+            <div className='ml-10'>
+                <h1 className='md:text-5xl text-2xl text-white'>ALBUM</h1>
             </div>
             <div className="flex flex-wrap justify-evenly">
                 {
@@ -116,11 +166,11 @@ const Body = () => {
 
             </div>
             <div className='bg-black flex items-center justify-center'>
-                <button className='bg-black shadow-xl rounded-lg border border-solid-white p-3 hover:bg-blue-600 transition' onClick={handlePreviouspage}><FontAwesomeIcon icon={faLeftLong} className='text-white' /></button>
+                <button className='bg-black shadow-xl rounded-lg border border-solid-white p-3 hover:bg-blue-600 transition duration-400' onClick={handlePreviouspage}><FontAwesomeIcon icon={faLeftLong} className='text-white' /></button>
                 <h1 className='p-5 font-bold text-base text-white'>{currPage}</h1>
-                <button className='bg-black shadow-lg rounded-lg border border-solid-white p-3 hover:bg-blue-600 transition' onClick={handleNextpage}><FontAwesomeIcon icon={faRightLong} className='text-white'/></button>
+                <button className='bg-black shadow-lg rounded-lg border border-solid-white p-3 hover:bg-blue-600 transition duration-400' onClick={handleNextpage}><FontAwesomeIcon icon={faRightLong} className='text-white' /></button>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

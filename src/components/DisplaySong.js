@@ -45,7 +45,7 @@ const DisplaySong = ({ song }) => {
             // console.log(temp);
     }
     return (
-        <div className="m-4 p-4 w-[300px] rounded-lg  hover:shadow-white" >
+        <div className="m-4 p-4 w-[200px] rounded-lg  hover:shadow-white" >
             <img className="rounded-lg" src={song.thumbnail} alt={song.title} />
             <div>
                 <h2 className="font-bold py-4 text-lg text-yellow-200" >{song.title}</h2>
